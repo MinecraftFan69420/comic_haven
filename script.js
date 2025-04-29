@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filters.forEach(filter => {
         filter.addEventListener('change', () => {
-            const activefilters = Array.from(filters).filter(filter => filter.checked)
+            const activefilters = Array.from(filters).filter(filter => filter.checked).map(filter => filter.id)
             books.forEach(book => {
                 const bookcategories = book.getAttribute("filtercategory").split(" ")
                 if (activefilters.length === 0 || activefilters.some(filter => bookcategories.includes(filter))) {
