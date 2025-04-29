@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         filter.addEventListener('change', () => {
             const activefilters = Array.from(filters).filter(filter => filter.checked).map(filter => filter.id)
             books.forEach(book => {
-                const categories = book.getAttribute("filtercategory")
-                const bookcategories = categories ? categories.split(" ").filter(Boolean) : [] 
-                if (activefilters.length === 0 || activefilters.some(filter => bookcategories.includes(filter))) {
+                const categories = book.getAttribute("filtercategory") ? book.getAttribute("filtercategory").split(" ").filter(Boolean) : []; 
+                if (activefilters.length === 0 || activefilters.some(filter => categories.includes(filter))) {
                     book.style.display = ''
                 } else book.style.display = 'none'
             })
